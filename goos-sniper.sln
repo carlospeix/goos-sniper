@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{2B005359-D5D4-4B1B-BB30-24025BF7E82D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sniper", "sniper\sniper.csproj", "{A7C431A4-4526-41F0-87F0-C6CA1DDD6A75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B005359-D5D4-4B1B-BB30-24025BF7E82D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B005359-D5D4-4B1B-BB30-24025BF7E82D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B005359-D5D4-4B1B-BB30-24025BF7E82D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B005359-D5D4-4B1B-BB30-24025BF7E82D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C431A4-4526-41F0-87F0-C6CA1DDD6A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C431A4-4526-41F0-87F0-C6CA1DDD6A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C431A4-4526-41F0-87F0-C6CA1DDD6A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C431A4-4526-41F0-87F0-C6CA1DDD6A75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {919CE762-8BF1-4E02-8137-B112DAA54FDE}
+	EndGlobalSection
+EndGlobal
