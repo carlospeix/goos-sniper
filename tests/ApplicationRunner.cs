@@ -1,8 +1,7 @@
-using System;
-using System.IO;
 using FlaUI.Core;
 using FlaUI.Core.AutomationElements;
 using FlaUI.UIA3;
+using NUnit.Framework;
 
 namespace GoosSniper.Tests
 {
@@ -11,10 +10,9 @@ namespace GoosSniper.Tests
         private const string XMPP_HOSTNAME = "localhost";
         private const string SNIPER_ID = "sniper";
         private const string SNIPER_PASSWORD = "sniper";
-
         private const string appPath = @"C:\Users\carlos\Repositories\goos-sniper\sniper\bin\Debug\sniper.exe";
 
-        private Application app;
+        private readonly Application app;
 
         internal ApplicationRunner()
         {
@@ -24,8 +22,7 @@ namespace GoosSniper.Tests
 
             using (var automation = new UIA3Automation())
             {
-                if (app.GetMainWindow(automation).Title != "Auction Sniper 1.0")
-                    throw new Exception("No encontrada la ventana con título correcto.");
+                Assert.AreEqual("Auction Sniper 1.0", app.GetMainWindow(automation).Title);
             }
         }
 
@@ -44,12 +41,11 @@ namespace GoosSniper.Tests
             using (var automation = new UIA3Automation())
             {
                 var window = app.GetMainWindow(automation);
+                
                 var statusLabel = window.FindFirstDescendant(cf => cf.ByName("lblStatus")).AsLabel();
-                if (statusLabel == null)
-                    throw new Exception("No encontrada la etiqueta de estado con nombre lblStatus");
+                Assert.NotNull(statusLabel, "No encontrada la etiqueta de estado con nombre lblStatus");
 
-                if (!statusLabel.Text.Equals(statusText))
-                    throw new Exception("Etiquera lblStatus no contiene el texto: " + statusText);
+                Assert.AreEqual(statusText, statusLabel.Text);
             }
         }
 
