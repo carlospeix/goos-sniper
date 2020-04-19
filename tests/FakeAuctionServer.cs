@@ -1,6 +1,7 @@
 using System;
-using NUnit.Framework;
 using System.Collections.Concurrent;
+using NUnit.Framework;
+using Artalk.Xmpp;
 using Artalk.Xmpp.Im;
 using Artalk.Xmpp.Client;
 
@@ -45,8 +46,8 @@ namespace GoosSniper.Tests
 
         internal void AnnounceClosed()
         {
-            // TODO: Revisar el mecanismo de comunicación (algo parecido a un canal privado)
-            client.SendMessage($"sniper@localhost", "Closed", null, null, MessageType.Chat);
+            Jid auctionId = $"sniper@localhost";
+            client.SendMessage(auctionId, "Closed", null, null, MessageType.Chat);
         }
 
         internal string GetItemId()

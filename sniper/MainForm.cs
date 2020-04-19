@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-using Artalk.Xmpp.Client;
+﻿using System.Windows.Forms;
+using Artalk.Xmpp;
 using Artalk.Xmpp.Im;
+using Artalk.Xmpp.Client;
 
 namespace GoosSniper.Sniper
 {
@@ -26,7 +26,7 @@ namespace GoosSniper.Sniper
         }
         private void JoinAuction(string itemId)
         {
-            string auctionId = $"auction-{itemId}@localhost";
+            Jid auctionId = $"auction-{itemId}@localhost";
             client.SendMessage(auctionId, "Empty", null, null, MessageType.Chat);
         }
 
