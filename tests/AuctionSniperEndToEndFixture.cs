@@ -36,7 +36,7 @@ namespace GoosSniper.Tests
         public void TearDown()
         {
             application.Stop();
-            //auction.Stop();
+            auction.Stop();
         }
     }
 }

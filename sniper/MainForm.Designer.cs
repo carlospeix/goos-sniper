@@ -36,9 +36,9 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Location = new System.Drawing.Point(12, 424);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(62, 17);
+            this.lblStatus.Size = new System.Drawing.Size(89, 17);
             this.lblStatus.TabIndex = 1;
-            this.lblStatus.Text = "lblStatus";
+            this.lblStatus.Text = "Empty status";
             // 
             // MainForm
             // 

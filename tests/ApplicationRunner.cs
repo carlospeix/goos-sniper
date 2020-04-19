@@ -16,7 +16,6 @@ namespace GoosSniper.Tests
 
         internal ApplicationRunner()
         {
-            // Directory.GetCurrentDirectory= C:\\Users\\carlos\\Repositories\\goos-sniper\\tests\\bin\\Debug\\netcoreapp3.1
             var command = $"{appPath}"; // {XMPP_HOSTNAME} {SNIPER_ID} {SNIPER_PASSWORD} {auction.GetItemId()}";
             app = Application.Launch(command);
 
@@ -41,8 +40,8 @@ namespace GoosSniper.Tests
             using (var automation = new UIA3Automation())
             {
                 var window = app.GetMainWindow(automation);
-                
-                var statusLabel = window.FindFirstDescendant(cf => cf.ByName("lblStatus")).AsLabel();
+
+                var statusLabel = window.FindFirstDescendant(cf => cf.ByAutomationId("lblStatus")).AsLabel();
                 Assert.NotNull(statusLabel, "No encontrada la etiqueta de estado con nombre lblStatus");
 
                 Assert.AreEqual(statusText, statusLabel.Text);
@@ -51,7 +50,7 @@ namespace GoosSniper.Tests
 
         internal void Stop()
         {
-            app.Kill();
+            app.Close();
             app.Dispose();
         }
     }
