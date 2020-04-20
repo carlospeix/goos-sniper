@@ -6,11 +6,11 @@ namespace GoosSniper.Sniper
     static class Program
     {
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm("localhost", "sniper", "sniper", "item-54321"));
+            Application.Run(new MainForm(args[0], args[1], args[2], args[3]));
         }
     }
 }

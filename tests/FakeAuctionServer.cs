@@ -17,6 +17,8 @@ namespace GoosSniper.Tests
         private readonly ArtalkXmppClient client;
         private readonly BlockingCollection<string> messages;
 
+        private Jid bidderId;
+
         internal FakeAuctionServer(string itemId)
         {
             this.itemId = itemId;
@@ -29,6 +31,7 @@ namespace GoosSniper.Tests
 
         private void OnNewMessage(object sender, MessageEventArgs e)
         {
+            bidderId = e.Jid;
             messages.Add(e.Message.Body);
         }
 
@@ -46,8 +49,7 @@ namespace GoosSniper.Tests
 
         internal void AnnounceClosed()
         {
-            Jid auctionId = $"sniper@localhost";
-            client.SendMessage(auctionId, "Closed", null, null, MessageType.Chat);
+            client.SendMessage(bidderId, "Closed", null, null, MessageType.Chat);
         }
 
         internal string GetItemId()

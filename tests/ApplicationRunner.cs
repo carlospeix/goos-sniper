@@ -2,6 +2,7 @@ using FlaUI.Core;
 using FlaUI.Core.AutomationElements;
 using FlaUI.UIA3;
 using NUnit.Framework;
+using System.Diagnostics;
 
 namespace GoosSniper.Tests
 {
@@ -12,21 +13,18 @@ namespace GoosSniper.Tests
         private const string SNIPER_PASSWORD = "sniper";
         private const string appPath = @"C:\Users\carlos\Repositories\goos-sniper\sniper\bin\Debug\sniper.exe";
 
-        private readonly Application app;
+        private Application app;
 
-        internal ApplicationRunner()
+        internal void StartBiddingIn(FakeAuctionServer auction)
         {
-            var command = $"{appPath}"; // {XMPP_HOSTNAME} {SNIPER_ID} {SNIPER_PASSWORD} {auction.GetItemId()}";
-            app = Application.Launch(command);
+            var startInfo = new ProcessStartInfo(appPath, $"{XMPP_HOSTNAME} {SNIPER_ID} {SNIPER_PASSWORD} {auction.GetItemId()}");
+            app = Application.Launch(startInfo);
 
             using (var automation = new UIA3Automation())
             {
                 Assert.AreEqual("Auction Sniper 1.0", app.GetMainWindow(automation).Title);
             }
-        }
 
-        internal void StartBiddingIn(FakeAuctionServer auction)
-        {
             ShowsSniperStatus("Joining");
         }
 
